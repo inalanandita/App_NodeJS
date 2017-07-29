@@ -1,0 +1,229 @@
+Doctype
+extends layout
+head
+        title Node Authentication
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+        style.
+            body        { padding-top:80px; }
+            p           {color: #337ab7;}
+body
+block content
+    div
+
+        script(type='text/javascript').
+
+            $(document).ready(function () {
+                //alert("hello nandita");
+                $("#home1").hide();
+                $("#addQuestion1").hide();
+                $("#Dashboard").hide();
+                $("#logout1").hide();
+				
+                $("#login").click(function () {
+                   /// alert("logged in");
+                    $("#loginId").show();
+                    $("#login").hide();
+                    $("#signupId").hide();
+                    $("#signup").hide();
+                });
+                $("#signup").click(function () {
+                   /// alert("logged in");
+                    $("#signupId").show();
+                    $("#loginId").hide();
+                    $("#login").hide();
+                    $("#signup").hide();
+                });
+                $("#username1").change(function(){
+                    var mail=document.getElementById('username1').value;
+                    var filter = /^([a-z0-9_\.\-])+\@nttdata.com/;
+                    if (!filter.test(username1.value)) {
+                        $("#mail1").show();
+                        
+                        document.getElementById("username1").value= "";
+                        $("#markMail").hide();
+                        this.focus();
+
+
+                    }
+                    else{
+                        $("#mail1").hide();
+                        $("#markMail").show();
+                    }
+                });
+                $("#manager").change(function(){
+                    var mail=document.getElementById('manager').value;
+                    var filter = /^([a-z0-9_\.\-])+\@nttdata.com/;
+                    if (!filter.test(manager.value)) {
+
+                        $("#mail2").show();
+                        document.getElementById("manager").value= "";
+                        $("#managermark").hide();
+                        this.focus();
+
+
+                    }
+                    else{
+                        $("#mail2").hide();
+                        $("#managermark").show();
+                    }
+                });
+                $("#password2").change(function(){
+                    //alert("password1"+$("#password1").toString());
+                    //alert("password2"+form.password2.value());
+                    
+                    var pass1 = document.getElementById('password1').value;
+                    var pass2 = document.getElementById('password2').value;
+                    //alert("pass1"+pass1);
+                    //alert("pass2"+pass2);
+
+                        if(pass1 != pass2 ){
+                            $("#pwd2").show();
+                            document.getElementById("password2").value= "";
+                            this.focus();
+
+                        }
+                        else{
+                            $("#pwd2").hide();
+                            $("#markId1").show();
+                        }
+
+
+
+
+
+
+
+                })
+                $("#password1").change(function(){
+                    var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+                    var pass1 = document.getElementById('password1').value;
+                    var pass2 = document.getElementById('password2').value;
+                    //alert("pass1"+pass1);
+                    //alert("pass2"+pass2);
+                    if(!paswd.test(pass1)) {
+                        $("#pwd1").show();
+                        document.getElementById("password1").value = "";
+                        this.focus();
+                    }else{
+                        $("#pwd1").hide();
+                        $("#markId").show();
+                    }
+                })
+                
+
+            });
+            script(type='text/javascript', src='/javascripts/wowslider.js')
+            script(type='text/javascript', src='/javascripts/script1.js')
+
+    .container
+
+     .jumbotron
+
+        h1(style="color: #337ab7")=title
+             
+        
+                    
+         
+
+        
+        h3(style="color: #337ab7") Login or Register with:
+        a(style="color: #337ab7").btn.btn-default(id="login")
+            span.fa.fa-user
+            |   Login
+        a(style="color: #337ab7").btn.btn-default(id='signup')
+            span.fa.fa-user
+            |   Signup
+
+         form.login-form.form-horizontal(name="loginUser",action="/loginUser", role='form',id="loginId",method='post',hidden=true)
+
+
+
+
+             div.form-group
+                 label(style="color: #337ab7;font-weight: 700;") Email Id
+                  div
+                     input(
+                     placeholder='username',
+                     required=true,
+                     name='username',
+					 id='username',
+                     type='text',
+                     value=username)
+             div.form-group
+                 label.col-sm-4(style="color: #337ab7;font-weight: 700;") Password
+                 div.col-sm-8
+                     input.form-control(placeholder='password',
+                     required=false,
+                     name='password',
+                     type='password',
+                     value=password)
+
+
+             div.form-group
+                 div.col-sm-offset-4.col-sm-8
+                     button.btn.btn-default(type='submit') Login
+
+
+         form.login-form.form-horizontal(name="signupUser",autocomplete=off,action="/signupUser", role='form',id="signupId",method='post',hidden=true)
+
+
+
+
+             
+             div.form-group
+                 label.col-sm-4(style="color: #337ab7;font-weight: 700;") Manager's Mail Id
+                     div.col-sm-8
+                         input.form-control(
+                         placeholder='mail id',
+                         required=true,
+                         name='manager',
+                         id='manager',
+                         type='text',
+                         value=manager)
+                         img(src='images/green_glass_button_white_backgrop_check_mark.jpg', alt='project', width="25",height="25",hidden=true,id='managermark')
+                         a(id="mail2",hidden=true,style="color: #ff0000;font-weight: 500;")  Enter valid mail id          
+             div.form-group
+                 label.col-sm-4(style="color: #337ab7;font-weight: 700;") Email Id
+                     div.col-sm-8
+                         input.form-control(
+                         placeholder='mail id',
+                         required=true,
+                         name='username1',
+                         id='username1',
+                         type='text',
+                         value=username1,autocomplete=off)
+                         img(src='images/green_glass_button_white_backgrop_check_mark.jpg', alt='project', width="25",height="25",hidden=true,id='markMail')
+                         a(id="mail1",hidden=true,style="color: #ff0000;font-weight: 500;") Enter valid email id
+
+             div.form-group
+                 label.col-sm-4(style="color: #337ab7;font-weight: 700;") Create a New Password
+                 div.col-sm-8
+                     input.form-control(placeholder='password',
+                     required=true,
+                     name='password',
+                     type='password',
+                     id='password1',
+                     value=password1,autocomplete=off
+                     )
+
+                     img(src='images/green_glass_button_white_backgrop_check_mark.jpg', alt='project', width="25",height="25",hidden=true,id='markId')
+                     a(style="color: #ff0000;font-weight: 500;",id="pwd1",hidden=true) Enter valid password
+             div.form-group
+                 label.col-sm-4(style="color: #337ab7;font-weight: 700;") Re-enter Password
+                 div.col-sm-8
+                     input.form-control(placeholder='password',
+                     required=true,
+                     name='password_confirm',
+                     type='password',
+                     id='password2'
+                     value=password2)
+
+                     img(src='images/green_glass_button_white_backgrop_check_mark.jpg', alt='project', width="25",height="25",hidden=true,id='markId1')
+                     a(style="color: #ff0000;font-weight: 500;",id="pwd2",hidden=true) Enter same password
+                    
+
+
+             div.form-group
+                 div.col-sm-offset-4.col-sm-8
+                     button.btn.btn-default(type='submit',id="signSubmit") SignUp

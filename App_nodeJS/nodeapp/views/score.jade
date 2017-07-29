@@ -1,0 +1,141 @@
+//
+   Created by ais on 3/10/2015.
+
+Doctype
+extends layout
+head
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+        link(href='stylesheets/normalize.css', rel='stylesheet')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+
+block content
+    body
+     script(type='text/javascript').
+            $(document).ready(function () {
+                
+                
+                $("#usermail").change(function(){
+                    var mail=document.getElementById('usermail').value;
+                    var filter = /^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
+                    if (!filter.test(usermail.value)) {
+                        
+                        alert("please enter a valid email id");
+                        document.getElementById("usermail").value= "";
+                        $("#markMail").hide();
+                        $("#errorMsg1").show();
+                        this.focus();
+
+
+                    }
+                    else{
+                        $("#markMail").show();
+                        $("#errorMsg1").hide();
+                    }
+                });
+                $("#managermail").change(function(){
+                    var mail=document.getElementById('managermail').value;
+                    var filter = /^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
+                    if (!filter.test(managermail.value)) {
+
+                        alert("please enter a valid email id");
+                        document.getElementById("managermail").value= "";
+                        $("#markMail1").hide();
+                        $("#errorMsg2").show();
+                        this.focus();
+
+
+                    }
+                    else{
+                        $("#markMail1").show();
+                        $("#errorMsg2").hide();
+                    }
+                });
+                
+                isAD();
+                
+                if($('#g1').length!=0){
+                $("#star1").show();
+                $("#star2").show();
+                $("#trophy").show();
+                } 
+                else if($('#g2').length!=0){
+                $("#star1").show();
+                $("#star2").show();
+                $("#star3").show();
+                $("#trophy").show();
+                }
+                else if($('#g3').length!=0){
+                $("#star1").show();
+                $("#star2").show();
+                $("#star3").show();
+                $("#star4").show();
+                $("#trophy").show();
+                }
+                else if($('#g4').length!=0){
+                $("#star5").show();
+                
+                }
+                 var s=$("#property2").text();
+                 
+                 var s1=parseInt(s);
+                  
+                 setInterval(function(){
+                     
+                    //alert("timeup session");
+                    setTimeout('Redirect1()', 15000);
+                  },s1); 
+                          
+            });
+            function isAD(){
+                if($('#administrator').length!=0){
+                alert("hey admin");
+                }
+                else{
+                $("#addQuestion1").hide();
+                $("#Dashboard").hide();
+                }
+            }
+     h1(style="text-align: center;color: #235580")=title
+     
+     br
+     br
+     br
+     
+
+     
+
+     form.login-form.form-horizontal(name="reportScore", role='form',id="reportScore",method='post')
+        input.btn.btn-large.btn-block(type="hidden",name="marks",value=marks)
+        input.btn.btn-large.btn-block(type="hidden",name="technology",value=technology)
+        input.btn.btn-large.btn-block(type="hidden",name="admin",value=admin)
+        input.btn.btn-large.btn-block(type="hidden",name="totalMarks",value=totalMarks)
+        input.btn.btn-large.btn-block(type="hidden",name="percentage",value=percentage)
+        input.btn.btn-large.btn-block(type="hidden",name="grad",value=grad,id="grade_up")
+        input.btn.btn-large.btn-block(type="hidden",name="prop2",value=prop2,id="prop2")
+        a(id="property2",hidden=true)=prop2
+        if admin.toString()=="1"
+            a(style='text-align:left;font-size: 15px',id="administrator",hidden=true)=admin.toString()
+        if grad.toString()=="B"
+            a(style='text-align:left;font-size: 15px',id="g1",hidden=true)=grad.toString()
+        else if grad.toString()=="A"
+            a(style='text-align:left;font-size: 15px',id="g2",hidden=true)=grad.toString()
+        else if grad.toString()=="A+"
+            a(style='text-align:left;font-size: 15px',id="g3",hidden=true)=grad.toString()
+        else if grad.toString()=="C"
+            a(style='text-align:left;font-size: 15px',id="g4",hidden=true)=grad.toString()
+      div(style="width:100%; text-align:center")
+        h2(style="text-align: center;color: #337ab7") You Scored
+        h2(style="text-align: center;color: #337ab7",id="percentMark")=percentage
+        
+        img(id="star1",src='images/images_star.png', width="70",height="70",align="middle",hidden=true)
+        img(id="star2",src='images/images_star.png', width="70",height="70",align="middle",hidden=true)
+        img(id="star3",src='images/images_star.png', width="70",height="70",align="middle",hidden=true)
+        img(id="star4",src='images/images_star.png', width="70",height="70",align="middle",hidden=true)
+        br
+      div(style="width:100%; text-align:center")
+        img(id="star5",src='images/wrong_thumb39.jpg', width="100",height="100",align="middle",hidden=true)
+        br
+        img(id="trophy",src='images/041799-3d-glossy-blue-orb-icon-sports-hobbies-cup-trophy.png', width="250",height="250",align="middle",hidden=true)
+
+

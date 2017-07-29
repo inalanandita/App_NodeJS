@@ -1,0 +1,1003 @@
+Doctype
+extends layout
+head
+      
+    
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    link(href='stylesheets/normalize.css', rel='stylesheet')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(href='http://www.jqueryscript.net/css/jquerysctipttop.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='http://code.jquery.com/ui/1.10.2/themes/ui-lightness/jquery-ui.css')
+    link( href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css")
+    
+
+body
+script(type='text/javascript', src='/javascripts/bPopup.js')
+script(type='text/javascript', src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js')
+style.
+block content
+    div.centered-pills
+        ul.nav.nav-pills
+           
+        script(type='text/javascript').
+
+            $(document).ready(function () {
+                 var s=$("#property2").text();
+                 
+                 var s1=parseInt(s);
+                 setInterval(function(){
+                     
+                    //alert("timeup session");
+                    setTimeout('Redirect1()', 15000);
+                  },s1); 
+                  $(function() {
+
+                  var $navLink = $('#accordion').find('li');
+
+                  $navLink.on('click', function() {
+                    var panelToShow = $(this).data('panel-id');
+                    var $activeLink = $('#accordion').find('.active');
+
+                    
+                    $('.' + panelToShow).stop().slideDown();
+                    $('.' + panelToShow).addClass('active');
+
+
+                    // hide the previous panel 
+                    $activeLink.stop().slideUp()
+                    .removeClass('active');
+
+                  });
+
+                });
+                
+                $("#selectedOption1").change(function () {
+                    var value = $("#selectedOption1").find(":selected").val();
+                    $( "select" ).each(function() {
+
+                        if(value ==2){
+                            $("#optio1").hide();
+                            $("#optio5").hide();
+                            $("#optio2").show();
+
+                         }
+                        else if(value ==4){
+                            $("#optio1").show();
+                            $("#optio5").hide();
+                            $("#optio2").hide();
+                        }
+                        else{
+                            $("#optio5").show();
+                            $("#optio1").hide();
+                            $("#optio2").hide();
+                        }
+
+                            });
+
+
+                    });
+                $("#selectedOption2").change(function () {
+                    
+                    var value = $("#selectedOption2").find(":selected").val();
+                    $( "select" ).each(function() {
+
+                        if(value ==2){
+                            $("#optio21").hide();
+                            $("#optio25").hide();
+                            $("#optio22").show();
+
+                         }
+                        else if(value ==4){
+                            $("#optio21").show();
+                            $("#optio25").hide();
+                            $("#optio22").hide();
+                        }
+                        else{
+                            $("#optio25").show();
+                            $("#optio21").hide();
+                            $("#optio22").hide();
+                        }
+
+                            });
+
+
+                    }); 
+                $("#selectedOption3").change(function () {
+                    var value = $("#selectedOption3").find(":selected").val();
+                    $( "select" ).each(function() {
+
+                        if(value ==2){
+                            $("#optio31").hide();
+                            $("#optio35").hide();
+                            $("#optio32").show();
+
+                         }
+                        else if(value ==4){
+                            $("#optio31").show();
+                            $("#optio35").hide();
+                            $("#optio32").hide();
+                        }
+                        else{
+                            $("#optio35").show();
+                            $("#optio31").hide();
+                            $("#optio32").hide();
+                        }
+
+                            });
+
+
+                    }); 
+                    $("#selectedOption4").change(function () {
+                    var value = $("#selectedOption4").find(":selected").val();
+                    $( "select" ).each(function() {
+
+                        if(value ==2){
+                            $("#optio41").hide();
+                            $("#optio45").hide();
+                            $("#optio42").show();
+
+                         }
+                        else if(value ==4){
+                            $("#optio41").show();
+                            $("#optio45").hide();
+                            $("#optio42").hide();
+                        }
+                        else{
+                            $("#optio45").show();
+                            $("#optio41").hide();
+                            $("#optio42").hide();
+                        }
+
+                            });
+
+
+                    }); 
+                    $("#selectedOption5").change(function () {
+                    
+                    var value = $("#selectedOption5").find(":selected").val();
+                    $( "select" ).each(function() {
+
+                        if(value ==2){
+                            $("#optio51").hide();
+                            $("#optio55").hide();
+                            $("#optio52").show();
+
+                         }
+                        else if(value ==4){
+                            $("#optio51").show();
+                            $("#optio55").hide();
+                            $("#optio52").hide();
+                        }
+                        else{
+                            $("#optio55").show();
+                            $("#optio51").hide();
+                            $("#optio52").hide();
+                        }
+
+                            });
+
+
+                    });      
+                $("#noq").change(function(){
+                var value = $("#noq").find(":selected").val();
+                //alert("value"+value);
+                $("select").each(function(){
+                  if(value ==2){
+                    $("#questionList2").show();
+                    $("#question2").prop('required',true);
+                    //alert("property laid");
+                  }
+                  else if(value==3){
+                  $("#questionList2").show();
+                  $("#question2").prop('required',true);
+
+                  $("#questionList3").show();
+                  $("#question3").prop('required',true);
+
+                  $("#questionList4").hide();
+                  }
+                  else if(value==4){
+                  $("#questionList2").show();
+                  $("#question2").prop('required',true);
+
+                  $("#questionList3").show();
+                  $("#question3").prop('required',true);
+
+                  $("#questionList4").show();
+                  $("#question4").prop('required',true);
+
+                  }
+                  else if(value==5){
+                  $("#questionList2").show();
+                  $("#question2").prop('required',true);
+
+                  $("#questionList3").show();
+                  $("#question3").prop('required',true);
+
+                  $("#questionList4").show();
+                  $("#question4").prop('required',true);
+                  $("#questionList5").show();
+                  $("#question5").prop('required',true);
+
+                  }
+                  else{
+                  $("#questionList2").hide();
+                  $("#questionList3").hide();
+                  $("#questionList4").hide();
+                  }
+                })
+                }) 
+                 
+                
+                    
+                    });
+                
+
+    h1(style="text-align: center;color: #337ab7") Adding a New Question
+    div(id="menu1",style="width:100%,border-radius:50px", name="bar")
+        form(name="addQuestion",method='post',action="/addQuestion", role='form',id="addId")        
+          input.btn.btn-large.btn-block(type="hidden",name="prop2",value=prop2,id="prop2")
+          a(id="property2",hidden=true)=prop2 
+          div
+            div(id="accordion")
+
+             ul(class="panels")
+                div.form-group
+                  label.col-sm-4(style="color: #337ab7;font-family: sans-serif;font-size: 16px;") Technology
+                  select(name="tech")
+                    option(value='Java') Java
+                    ption(value='VBScript') VBScript
+                    option(value='Testing') Testing
+                    option(value='C') C
+                div.form-group
+                  label.col-sm-4(style="color: #337ab7;font-family: sans-serif;font-size: 16px;") Number Of Questions
+                  div.col-sm-8
+                    select(name="noq",id="noq")
+                      option(value=1) 1
+                      option(value=2) 2
+                      option(value=3) 3
+                      option(value=4) 4
+                      option(value=5) 5
+                li(data-panel-id="panel1",id="questionList1")
+                  p + Add Question#1
+                div(class="panel panel1",id="question1")
+                 
+                 div.form-group
+                    label.col-sm-4 Complexity1
+                    div.col-sm-8
+                        select(name="complexity1",id="complexity1")
+                            option(value=1) 1
+                            option(value=2) 2
+                            option(value=3) 3
+                            option(value=4) 4
+                            option(value=5) 5
+        
+                 div.form-group
+                    label.col-sm-4 Question
+                     
+                    textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='question1',
+                      required=true,
+                      name='question1',
+                      type='text',
+                      value=question1)
+
+                          
+                 div.form-group
+                    label.col-sm-4 Answer
+                     
+                    textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='answer',
+                      required=true,
+                      name='answer1',
+                      type='text',
+                      value=answer1)
+                 div.form-group
+                    label.col-sm-4 Select the number of options
+                    div.col-sm-8
+                        select(name="selectedOption1",id="selectedOption1")
+                            option(value=2) 2
+                            option(value=4) 4
+                            option(value=5) 5
+
+                 div(id="optio1",hidden=true)
+                         label.col-sm-4 Options
+                         div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+                            name='option11',
+                            type='text',
+                            value=option11)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option2',
+
+                             name='option12',
+                             type='text',
+                             value=option12)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option3',
+
+                             name='option13',
+                             type='text',
+                             value=option13)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option4',
+
+                             name='option14',
+                             type='text',
+                             value=option14)
+                 div(id="optio2")
+                        label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option15',
+                            type='text',
+                            value=option15)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option16',
+                            type='text',
+                            value=option16)
+                 div(id="optio5",hidden=true)
+                      label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option17',
+                            type='text',
+                            value=option17)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option18',
+                            type='text',
+                            value=option18)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option3',
+
+                            name='option19',
+                            type='text',
+                            value=option19)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option4',
+
+                            name='option110',
+                            type='text',
+                            value=option110)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option5',
+
+                            name='option111',
+                            type='text',
+                            value=option111)
+
+                li(data-panel-id="panel2",id="questionList2",hidden=true)
+                  p + Add Question#2
+                div(class="panel panel2",id="questionx2" ,required=true)
+                 
+                 div.form-group
+                    label.col-sm-4 Complexity
+                    div.col-sm-8
+                        select(name="complexity2",id="complexity2")
+                            option(value=1) 1
+                            option(value=2) 2
+                            option(value=3) 3
+                            option(value=4) 4
+                            option(value=5) 5
+        
+                 div.form-group
+                    label.col-sm-4 Question
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='question',
+                      id="question2",
+                      name='question2',
+                      type='text',
+                      value=question2)
+
+                          
+                 div.form-group
+                    label.col-sm-4 Answer
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='answer',
+                      
+                      name='answer2',
+                      type='text',
+                      value=answer2)      
+             
+                 div.form-group
+                    label.col-sm-4 Select the number of options
+                    div.col-sm-8
+                        select(name="selectedOption2",id="selectedOption2")
+                            option(value=2) 2
+                            option(value=4) 4
+                            option(value=5) 5
+
+                 div(id="optio21",hidden=true)
+                         label.col-sm-4 Options
+                         div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+                            name='option21',
+                            type='text',
+                            value=option21)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option2',
+
+                             name='option22',
+                             type='text',
+                             value=option22)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option3',
+
+                             name='option23',
+                             type='text',
+                             value=option23)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option4',
+
+                             name='option24',
+                             type='text',
+                             value=option24)
+                 div(id="optio22")
+                        label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option25',
+                            type='text',
+                            value=option25)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option26',
+                            type='text',
+                            value=option26)
+                 div(id="optio25",hidden=true)
+                      label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option27',
+                            type='text',
+                            value=option27)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option28',
+                            type='text',
+                            value=option28)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option3',
+
+                            name='option29',
+                            type='text',
+                            value=option29)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option4',
+
+                            name='option210',
+                            type='text',
+                            value=option210)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option5',
+
+                            name='option211',
+                            type='text',
+                            value=option211)
+                li(data-panel-id="panel3",id="questionList3",hidden=true)
+                  p + Add Question#3
+                div(class="panel panel3",id="questionx3" )
+                 
+                 div.form-group
+                    label.col-sm-4 Complexity
+                    div.col-sm-8
+                        select(name="complexity",id="complexity3")
+                            option(value=1) 1
+                            option(value=2) 2
+                            option(value=3) 3
+                            option(value=4) 4
+                            option(value=5) 5
+                 
+                 div.form-group
+                    label.col-sm-4 Question
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='question',
+                      id="question3",
+                      name='question3',
+                      type='text',
+                      value=question3)
+
+                          
+                 div.form-group
+                    label.col-sm-4 Answer
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='answer',
+                     
+                      name='answer3',
+                      type='text',
+                      value=answer3)      
+             
+                 div.form-group
+                    label.col-sm-4 Select the number of options
+                    div.col-sm-8
+                        select(name="selectedOption3",id="selectedOption3")
+                            option(value=2) 2
+                            option(value=4) 4
+                            option(value=5) 5
+
+                 div(id="optio31",hidden=true)
+                         label.col-sm-4 Options
+                         div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+                            name='option31',
+                            type='text',
+                            value=option31)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option2',
+
+                             name='option32',
+                             type='text',
+                             value=option32)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option3',
+
+                             name='option33',
+                             type='text',
+                             value=option33)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option4',
+
+                             name='option34',
+                             type='text',
+                             value=option34)
+                 div(id="optio32")
+                        label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option35',
+                            type='text',
+                            value=option35)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option36',
+                            type='text',
+                            value=option36)
+                 div(id="optio35",hidden=true)
+                      label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option37',
+                            type='text',
+                            value=option37)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option38',
+                            type='text',
+                            value=option38)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option3',
+
+                            name='option39',
+                            type='text',
+                            value=option39)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option4',
+
+                            name='option310',
+                            type='text',
+                            value=option310)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option5',
+
+                            name='option311',
+                            type='text',
+                            value=option311)
+
+                li(data-panel-id="panel4",id="questionList4",hidden=true)
+                  p + Add Question#4
+                div(class="panel panel4",id="questionx4" )
+                 
+                 div.form-group
+                    label.col-sm-4 Complexity
+                    div.col-sm-8
+                        select(name="complexity4",id="complexity4")
+                            option(value=1) 1
+                            option(value=2) 2
+                            option(value=3) 3
+                            option(value=4) 4
+                            option(value=5) 5
+        
+                 div.form-group
+                    label.col-sm-4 Question
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='question',
+                      id="question4",
+                      name='question4',
+                      type='text',
+                      value=question4)
+
+                          
+                 div.form-group
+                    label.col-sm-4 Answer
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='answer',
+                      
+                      name='answer4',
+                      type='text',
+                      value=answer4)      
+
+                 div.form-group
+                    label.col-sm-4 Select the number of options
+                    div.col-sm-8
+                        select(name="selectedOption4",id="selectedOption4")
+                            option(value=2) 2
+                            option(value=4) 4
+                            option(value=5) 5
+
+                 div(id="optio41",hidden=true)
+                         label.col-sm-4 Options
+                         div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+                            name='option41',
+                            type='text',
+                            value=option41)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option2',
+
+                             name='option42',
+                             type='text',
+                             value=option42)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option3',
+
+                             name='option43',
+                             type='text',
+                             value=option43)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option4',
+
+                             name='option44',
+                             type='text',
+                             value=option44)
+                 div(id="optio42")
+                        label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option45',
+                            type='text',
+                            value=option45)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option46',
+                            type='text',
+                            value=option46)
+                 div(id="optio45",hidden=true)
+                      label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option47',
+                            type='text',
+                            value=option47)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option48',
+                            type='text',
+                            value=option48)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option3',
+
+                            name='option49',
+                            type='text',
+                            value=option49)
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option4',
+
+                            name='option410',
+                            type='text',
+                            value=option410)
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option5',
+
+                            name='option411',
+                            type='text',
+                            value=option411)
+
+
+                                
+
+                              
+                li(data-panel-id="panel5",id="questionList5",hidden=true)
+                  p + Add Question #5
+                div(class="panel panel5",id="questionx5" )
+                 
+                 div.form-group
+                    label.col-sm-4 Complexity
+                    div.col-sm-8
+                        select(name="complexity",id="complexity5")
+                            option(value=1) 1
+                            option(value=2) 2
+                            option(value=3) 3
+                            option(value=4) 4
+                            option(value=5) 5
+                 
+                 div.form-group
+                    label.col-sm-4 Question
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='question',
+                      id="question5",
+                      name='question5',
+                      type='text',
+                      value=question5)
+
+                          
+                 div.form-group
+                    label.col-sm-4 Answer
+                    div.col-sm-8
+                      textarea.form-control(
+                      rows='2', cols='20',
+                      placeholder='answer',
+                     
+                      name='answer5',
+                      type='text',
+                      value=answer5)      
+             
+                 div.form-group
+                    label.col-sm-4 Select the number of options
+                    div.col-sm-8
+                        select(name="selectedOption5",id="selectedOption5")
+                            option(value=2) 2
+                            option(value=4) 4
+                            option(value=5) 5
+
+                 div(id="optio51",hidden=true)
+                         label.col-sm-4 Options
+                         div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+                            name='option51',
+                            type='text',
+                            value=option51)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option2',
+
+                             name='option52',
+                             type='text',
+                             value=option52)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option3',
+
+                             name='option53',
+                             type='text',
+                             value=option53)
+
+
+                            textarea.form-control(
+                             rows='2', cols='20',
+                             placeholder='option4',
+
+                             name='option54',
+                             type='text',
+                             value=option54)
+                 div(id="optio52")
+                        label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option55',
+                            type='text',
+                            value=option55)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option56',
+                            type='text',
+                            value=option56)
+                 div(id="optio55",hidden=true)
+                      label.col-sm-4 Options
+                        div.col-sm-8
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option1',
+
+                            name='option57',
+                            type='text',
+                            value=option57)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option2',
+
+                            name='option58',
+                            type='text',
+                            value=option58)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option3',
+
+                            name='option59',
+                            type='text',
+                            value=option59)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option4',
+
+                            name='option510',
+                            type='text',
+                            value=option510)
+
+
+                            textarea.form-control(
+                            rows='2', cols='20',
+                            placeholder='option5',
+
+                            name='option511',
+                            type='text',
+                            value=option511)
+
+
+              br 
+                                    
+             div.form-group
+                div.col-sm-offset-4.col-sm-8
+                    button.login.btn.btn-primary(type='submit',value='done',id="submit") Submit
+    

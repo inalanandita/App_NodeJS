@@ -1,0 +1,129 @@
+
+
+Doctype
+extends layout
+head
+    link(rel='stylesheet', href='css/owl.carousel.css')
+    link(rel='stylesheet', href='css/owl.theme.css')
+
+    
+body
+ 
+block content
+    script(type='text/javascript',ssrc='http://codepen.io/assets/editor/live/css_live_reload_init.js')
+    script(type='text/javascript', src='http://sorgalla.com/jcarousel/dist/jquery.jcarousel.min.js')
+    script(type='text/javascript', src='/javascripts/modernizr.js')
+    script(type='text/javascript', src='/javascripts/blossom.js')
+    
+    script.
+           
+           var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-36251023-1']);
+              _gaq.push(['_setDomainName', 'jqueryscript.net']);
+              _gaq.push(['_trackPageview']);
+           (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+              function Redirect1()
+              {
+               window.location="/";
+               sweetAlert({   title: "Session Expired",   text: "Login again",   timer: 10000,   showConfirmButton: false });
+              }
+           $(document).ready(function () {
+            
+            $('#myCarousel').blossom({carouselHeight:'400px',carouselWidth: '900px'});
+            
+            if($('#administrator').length!=0){
+            //alert("hey admin");
+            }
+            else{
+            $("#addQuestion1").hide();
+            $("#Dashboard").hide();
+			
+            }
+             var s=$("#property2").text();
+           
+           var s1=parseInt(s);
+           //alert(s1);
+           setInterval(function(){
+                     
+                    //alert("timeup session");
+                    setTimeout('Redirect1()', 15000);
+                  },s1);         
+           });
+           
+            
+           
+    
+    h1(style="color: #337ab7").section-heading=title
+        
+     if admin.toString()=="1"
+      a(style='text-align:left;font-size: 15px',id="administrator",hidden=true)=admin.toString()
+       
+    
+    div(class="span12",style='margin:0 auto; text-align:center; width:600px')
+      div(id="myCarousel" ,data-wrap="circular" )
+        ul
+          li
+            img(src='images/dog.png',width="600", height="400",alt="")
+          li
+            img(src='images/banner-bg.jpg',width="600", height="400",alt="")
+          li
+            img(src='images/intro-bg.jpg',width="600", height="400",alt="")
+          
+           
+        div
+
+
+    div(class="span12")
+
+     form.login-form.form-horizontal(name="up",method='post', role='form',id=up)
+      input.btn.btn-large.btn-block(type="hidden",name="admin",value=admin)
+      input.btn.btn-large.btn-block(type="hidden",name="prop2",value=prop2,id="prop2")
+    a(id="property2",hidden=true)=prop2
+     ul.cbp-rfgrid
+        li.wow.animated.animated(data-wow-offset='30', data-wow-duration='0.09s', data-wow-delay='0.09s',
+         style='visibility: visible;-moz-transform:rotate('+d+'90);-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;')
+            a.more(href='playJava')
+                img(src='images/ipad.png', alt='project', width="400",height="400")
+                .project-info
+                    .project-details
+                        h5.white-text
+                            | Technology
+                        .details.white-text
+                            | Java
+        li.wow.animated.animated(data-wow-offset='30', data-wow-duration='1.5s', data-wow-delay='0.15s',
+         style='visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;')
+            a.more(href='playVBScript')
+                img(src='images/ipad.png', alt='project', width="400",height="400")
+                .project-info
+                    .project-details
+                        h5.white-text
+                            | Technology
+                        .details.white-text
+                            | VB Script
+        li.wow.animated.animated(data-wow-offset='30', data-wow-duration='1.5s', data-wow-delay='0.15s',
+         style='visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;')
+            a.more(href='playTesting')
+                img(src='images/ipad.png', alt='project', width="400",height="400")
+                .project-info
+                    .project-details
+                        h5.white-text
+                            | Technology
+                        .details.white-text
+                            | Testing
+        li.wow.animated.animated(data-wow-offset='30', data-wow-duration='1.5s', data-wow-delay='0.15s',
+         style='visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;')
+            a.more(href='playC')
+                img(src='images/ipad.png', alt='project', width="400",height="400")
+                .project-info
+                    .project-details
+                        h5.white-text
+                            | Technology
+                        .details.white-text
+                            | C
+
+
+

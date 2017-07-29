@@ -1,0 +1,9 @@
+# contents of properties file
+[timer]
+timer.java =60000
+timer.testing =80000
+timer.c =90000
+timer.vbscript =70000
+
+[session]
+session.time =3600000

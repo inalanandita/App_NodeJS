@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Slider javascript
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='description', content='Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Slider javascript')
+    
+    link(rel='stylesheet', type='text/css', href='css/styles.css')
+    script(type='text/javascript', src='javascripts/jquery.js')
+    script(type='text/javascript', src='javascripts/wowslider.js')
+    script(type='text/javascript', src='javascripts/script.js')
+    
+  body(style='background-color:#d7d7d7;margin:auto')
+    div(id="wowslider-container1")
+      div(class="ws_images")
+        ul
+          li
+            a(href='http://wowslider.com')
+              img(id="wows1_0"src='images/banner-bg.jpg', alt='simple jquery slider', title='Chrysanthemum')
+          li
+            img(id="wows1_1"src='images/intro-bg.jpg', alt='simple jquery slider', title='Chrysanthemum')
+      div(class="ws_bullets")
+        div
+          a(href='#', title='Chrysanthemum')
+            span
+              img(src='images/banner-bg.jpg', alt='Chrysanthemum')
+              | 1
+          a(href='#', title='Desert')
+            span
+              img(src='images/intro-bg.jpg', alt='Desert')
+              | 2
+      div(class="ws_script",style='position:absolute;left:-99%')
+        a(href='http://wowslider.com') slider javascript
+        |  by WOWSlider.com v7.8
+      div(class="ws_shadow")

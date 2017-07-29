@@ -1,0 +1,332 @@
+Doctype
+extends layout
+head
+
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+
+    link(href='stylesheets/normalize.css', rel='stylesheet')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='css/simplePagination.css')
+    link(rel='stylesheet', href='css/jplist-core.min.css')
+    link(rel='stylesheet', href='css/jplist-demo-pages.min.css')
+    link(rel='stylesheet', href='css/jplist-pagination-bundle.min.css')
+    link(rel='stylesheet', href='css/sweet-alert.css')
+    
+      
+
+
+body(onload="startstop();",onready="DisableBackButton();",onpageshow="if (event.persisted) DisableBackButton();" ,onUnload="")
+block content
+
+ div.centered-pills
+    ul.nav.nav-pills
+     style.
+      #page_navigation a{
+      padding:3px;
+      border:1px solid gray;
+      margin:2px;
+      color:black;
+      text-decoration:none
+      }
+      .active_page{
+      background:darkblue;
+      color:white !important;
+      }
+
+     script.
+
+           $(document).ready(function () {
+			
+            window.location.hash="no-back-button";
+            window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
+            window.onhashchange=function(){window.location.hash="no-back-button";}
+            $("#home1").hide();
+            $("#addQuestion1").hide();
+            $("#Dashboard").hide();
+            $("#logout1").hide();
+            $('#sub').show();
+            $("#sub").click(function () {
+                   //alert("please answer all the questions");
+                   var l=$("#len").text();
+                   for(var i=1;i<=Number(l);i++){
+                   var s='option'+i.toString();
+
+                   var selected_option=String(getCheckedValue(document.forms['Quiz'].elements[s]));
+                   //alert(selected_option.length);
+                   //alert(typeof selected_option)
+                  
+                   //var selected_op=JSON.stringify(selected_option);
+                   //alert(String(selected_op).length);
+                   if(selected_option.length == 0){
+                    alert("attempt all the questions");
+                   }
+                   }
+                   
+                   
+                });
+            
+            $('#paging_container3').pajinate({
+              items_per_page :5,
+              item_container_id : '.alt_content',
+              nav_panel_id : '.alt_page_navigation'
+              
+            });
+			       
+            var s=$("#quiz_length").text();
+			
+            startstop();
+              alert(valueOf("option1"));
+              if($('#rad1').value == " ") {
+                  alert("null value");
+              } else {
+                  alert("lost some how");
+              }
+               });
+            function getCheckedValue(radioObj) {
+              if(!radioObj)
+                return "";
+              var radioLength = radioObj.length;
+              if(radioLength == undefined)
+                if(radioObj.checked)
+                  return radioObj.value;
+                else
+                  return "";
+              for(var i = 0; i < radioLength; i++) {
+                if(radioObj[i].checked) {
+                  return radioObj[i].value;
+                }
+              }
+              return "";
+            }
+           function DisableBackButton() {
+            window.history.forward()
+            }
+           
+     script(type='text/javascript', src='/javascripts/jquery.simplePagination.js')
+     script(type='text/javascript', src='/javascripts/jplist-core.min.js')
+     script(type='text/javascript', src='/javascripts/jplist.pagination-bundle.min.js')
+     script(type='text/javascript', src='/javascripts/dynapagin.min.js')
+     script(type='text/javascript', src='/javascripts/dynapagin.js')
+     script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+     script(type='text/javascript', src='/javascripts/sweet-alert.min.js')
+     script(type='text/javascript', src='/javascripts/sweet-alert.js')
+     script(type='text/javascript', src='/javascripts/jquery.simplePagination.min.js')
+     script(type='text/javascript', src='/javascripts/jquery.pajinate.js')
+     script(type='text/javascript', src='/javascripts/jquery.pajinate.min.js')
+     script.
+          window.history.forward();function noBack(){window.history.forward();}
+          function go_to_page(page_num){
+            
+            var show_per_page = parseInt($('#show_per_page').val());
+            
+            //get the element number where to start the slice from
+            start_from = page_num * show_per_page;
+            
+            //get the element number where to end the slice
+            end_on = start_from + show_per_page;
+            
+            //hide all children elements of content div, get specific items and show them
+            $('#content').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+            
+            /*get the page link that has longdesc attribute of the current page and add active_page class to it
+            and remove that class from previously active page link*/
+            $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');
+            
+            //update the current page input field
+            $('#current_page').val(page_num);
+          }
+          
+          function Redirect()
+          {
+           window.location="/timeup";
+          }
+          var flagclock = 0;
+          var flagstop = 1;
+          var stoptime = 0;
+          var currenttime;
+          var splitdate = '';
+          var output;
+          var clock;
+          function startstop()
+          {
+          //var startstop = document.getElementById('startstoptimer');
+          var startdate = new Date();
+          var starttime = startdate.getTime();
+          
+          if(flagclock==0)
+          {
+          //startstop.value = 'Stop';
+          flagclock = 1;
+          counter(starttime);
+          }
+          else
+          {
+          //startstop.value = 'Start';
+          flagclock = 0;
+          flagstop = 1;
+          splitdate = '';
+          }
+          }
+          function counter(starttime)
+          {
+          output = document.getElementById('output');
+          clock = document.getElementById('clock');
+          currenttime = new Date();
+          var timediff = currenttime.getTime() - starttime;
+          if(flagstop == 1)
+          {
+          timediff = timediff + stoptime
+          }
+          if(flagclock == 1)
+          {
+          clock.value = formattime(timediff,'');
+          refresh = setTimeout('counter(' + starttime + ');',10);
+          }
+          else
+          {
+          window.clearTimeout(refresh);
+          stoptime = timediff;
+          }
+          }
+          function formattime(rawtime,roundtype)
+          {
+          if(roundtype == 'round')
+          {
+          var ds = Math.round(rawtime/100) + '';
+          }
+          else
+          {
+          var ds = Math.floor(rawtime/100) + '';
+          }
+          var sec = Math.floor(rawtime/1000);
+          //alert(rawtime);
+          var pr=$("#property1").text();
+          var p=parseInt(pr);
+          
+          //alert(p);
+          
+          
+          var min = Math.floor(rawtime/Number(p));
+          ds = ds.charAt(ds.length - 1);
+          if(min >= 1)
+          {
+
+          startstop();
+          //alert("hey nandy time up");
+          swal({   title: "Time Up",   text: "Your Test Ends Now",   timer: 10000,   showConfirmButton: false });
+          
+          setTimeout('Redirect()', 5000);
+          //window.location.replace("/"); 
+          }
+          
+          sec = sec - 60 * min + '';
+          if(sec.charAt(sec.length - 2) != '')
+          {
+          sec = sec.charAt(sec.length - 2) + sec.charAt(sec.length - 1);
+          }
+          else
+          {
+          sec = 0 + sec.charAt(sec.length - 1);
+          }
+          min = min + '';
+          if(min.charAt(min.length - 2) != '')
+          {
+          min = min.charAt(min.length - 2)+min.charAt(min.length - 1);
+          }
+          else
+          {
+          min = 0 + min.charAt(min.length - 1);
+          }
+          return min + ':' + sec;
+          }
+              
+           
+      
+
+
+
+    h1(style="text-align: center;color: #337ab7") Your Test Starts Now
+    div(id="page_navigation") 
+    div(id="dynapagin")
+    
+   div(style="width:50%;border:2px solid #46464f;", name="bar",id="paging_container3",class="container")
+
+      a(id="len",hidden=true)=quiz.length
+      a(style='background-color:white;font-weight:bold;font-size:10pt;color:black') Time Remaining : 
+      
+      input(id="clock",type='text', value='00:00', style='background-color:white;font-weight:bold;font-size:10pt;width: 50px;border: 1px solid #CCCCCC', readonly='')
+      a(style='background-color:white;font-weight:bold;font-size:10pt;color:black')    /00:
+      a(style='background-color:white;font-weight:bold;font-size:10pt;color:black')=prop1/1000
+      form.login-form.form-horizontal(name="Quiz",method='post',action="/Quiz", role='form',id=quiz)
+        input.btn.btn-large.btn-block(type="hidden",name="prop1",value=prop1,id="prop1")
+        a(id="property1",value=prop1,hidden=true)=prop1
+        - var c=0
+           div(class="alt_page_navigation")
+           br
+           ul(class="alt_content",style="list-style-type: square;color=list-style-type: square;")
+
+              each ques, i in quiz
+
+
+
+                    li
+
+                      input.btn.btn-large.btn-block(type="hidden",name="questionNumber",value=ques._id)
+                      input.btn.btn-large.btn-block(type="hidden",name="questionName",value=ques.Question)
+                      input.btn.btn-large.btn-block(type="hidden",name="technology",value=technology)
+
+                      a=ques.Question
+
+
+                      - var radioName="option"+c.toString()
+
+                      if ques.Options.length == 4
+                          -c=c+1
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[0],required=true,id="rad1")
+                          a=ques.Options[0]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[1],required=true)
+                          a=ques.Options[1]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[2],required=true)
+                          a=ques.Options[2]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[3],required=true)
+                          a=ques.Options[3]
+                      else if ques.Options.length ==5
+                          -c=c+1
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[0],required=true)
+                          a=ques.Options[0]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[1],required=true)
+                          a=ques.Options[1]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[2],required=true)
+                          a=ques.Options[2]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[3],required=true)
+                          a=ques.Options[3]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[4],required=true)
+                          a=ques.Options[4]
+
+                      else
+                          -c=c+1
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[0],required=true)
+                          a=ques.Options[0]
+                          br
+                          input.btn.btn-large.btn-block(class=radioName,type="radio",name="option"+c.toString(),value=ques.Options[1],required=true)
+                          a=ques.Options[1]
+
+
+              div.form-group
+                div.col-sm-offset-4.col-sm-8
+                    button.login.btn.btn-primary(type='submit', value='done',id="sub",hidden=true) Submit
+
+
+
+

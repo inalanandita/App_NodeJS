@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1(style="text-align: center;color: #235580") Dashboard
+    form.login-form.form-horizontal(name="report",method='post',action="/report", role='form',id=report)
+        
+        
+        - var c=0
+           div(class="alt_page_navigation")
+           br
+           ol(class="alt_content")
+              table
+                tr 
+                  each ques, i in report
+
+
+
+                        td
+
+                          
+                          a=ques.Resource_Mail_Id.toString()
+
+                        td
+
+                          
+                          a kpqksqpso

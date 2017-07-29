@@ -1,0 +1,72 @@
+doctype
+html
+    head
+        title= title
+        meta( charset="utf-8")
+        meta( http-equiv="X-UA-Compatible" content="IE=edge")
+        meta( name="viewport" content="width=device-width, initial-scale=1")
+        meta( name="description" content="")
+        meta( name="author" content="")
+        link(href='stylesheets/normalize.css', rel='stylesheet')
+        link(rel='stylesheet', href='css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/landing-page.css')
+        link(rel='stylesheet', href='css/animate.css')
+        link(rel='stylesheet', href='css/styles.css')
+        link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css' ,type='text/css')
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic',type='text/css')
+        link(rel='stylesheet', href='css/simplePagination.css')
+        link(rel='stylesheet', href='css/sweet-alert.css')
+        link( href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css")
+
+    body
+        script(type='text/javascript', src='http://code.jquery.com/jquery-latest.js')
+        script(type='text/javascript', src='http://twitter.github.com/bootstrap/assets/js/bootstrap.js')
+        script(type='text/javascript', src='/javascripts/index.js')
+        script(type='text/javascript', src='/javascripts/jquery.js')
+        script(type='text/javascript', src='/javascripts/jquery.simplePagination.js')
+        script(type='text/javascript', src='/javascripts/bPopup.js')
+        script(type='text/javascript', src='/javascripts/dynapagin.min.js')
+        script(type='text/javascript', src='/javascripts/dynapagin.js')
+        //script(type='text/javascript', src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js')
+        script(type='text/javascript', src='/javascripts/sweet-alert.min.js')
+        script(type='text/javascript', src='/javascripts/sweet-alert.js')
+        script(type='text/javascript', src='http://www.jqueryscript.net/demo/Simple-jQuery-Collapsible-Panel-Plugin/jquery.collapsiblepanel.js')
+        script(type='text/javascript', src='/javascripts/jquery.imagecube.js')
+        script(type='text/javascript', src='/javascripts/wowslider.js')
+        script(type='text/javascript', src='/javascripts/script1.js')
+        script(type='text/javascript').
+            
+             $(document).ready(function () {
+             
+             //setTimeout('Redirect1()', 20000);
+             //sweetAlert({   title: "Session Expired",   text: "Login again",   timer: 2000,   showConfirmButton: false });
+             //window.location.replace("/");
+             });
+             var time=60000;
+             
+            
+
+
+        nav(class="navbar navbar-default navbar-fixed-top topnav" role="navigation")
+
+        div.container
+            div.row.span12(style="margin-bottom: 0px")
+                div.page-header
+                    block navbar
+                        div.centered-pills
+                            ul.nav.nav-pills
+                                li
+                                    a(href="timeup",id="home1") Home
+                                
+                                li
+                                    a(href="/",id="logout1") Logout
+                                li
+                                    a(href="NewQuestion",id="addQuestion1",hidden=true) Add Question 
+                                li
+                                    a(href="dashboard",id="Dashboard",hidden=true) Dashboard      
+                    block content
+
+                        img.img-responsive.src="images/ipad.png".alt = ""
+                        a(id="property2",value=property2,hidden=true,text="property2")=property2
+                        footer.centered-header
+                            p Created by <a href="https://www.twitter.com/iamshanedoyle">MPF</a>

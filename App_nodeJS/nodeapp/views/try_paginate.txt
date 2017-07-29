@@ -1,0 +1,31 @@
+script(src='http://code.jquery.com/jquery-latest.min.js')
+            script(src='javascripts/dynapagin.js')
+            script.
+              $(function () {
+              $('#dynapagin').pagination({
+              
+              total:10,
+              perPage: 5,
+              }, function (page) {
+              $('#quiz').append(page);
+              }).on('page', function (event, page) {
+              
+              alert("page"+page);
+              
+              console.log('another way to provide content to page '+page+'.');
+              });
+              });
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+function pagination1(){
+            var perPage = 5;
+            var opened = 1;
+            var onClass = 'on';
+            var paginationSelector = '.pages';
+            $('.menu').simplePagination(perPage, opened, onClass, paginationSelector);
+          }
